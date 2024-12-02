@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Грамматика - Teach English</title>
+    <link rel="stylesheet" href="style3.css">
+    <style>
+        .arrow {
+            cursor: pointer;
+            font-size: 48px;
+            margin-top: 20px;
+            color: rgb(150, 170, 200);
+            transition: transform 0.3s;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px 0;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="picture/лого.png" alt="Logo"></a>
+            </div>
+            <nav>
+                <a href="about.html">О нас</a>
+                <a href="trainer.html">Тренажер</a>
+                <a href="dictionary.html">Словарь</a>
+                <a href="contact.html">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <h1>Грамматические упражнения</h1>
+            <p>Выберите тип упражнения, чтобы улучшить свои навыки грамматики. Удачи!</p>
+
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <h3>Упражнение 1</h3>
+                        <p>Заполните пропуски в предложениях правильными формами глаголов.</p>
+                        <a href="exercise1.html" class="button">Начать</a>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <h3>Упражнение 2</h3>
+                        <p>Выберите правильный вариант ответа из предложенных.</p>
+                        <a href="exercise2.html" class="button">Начать</a>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <h3>Упражнение 3</h3>
+                        <p>Переведите предложения на английский язык, используя правильные грамматические структуры.</p>
+                        <a href="exercise3.html" class="button">Начать</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="trainer.html" class="back-button">← Вернуться к разделу Тренажер</a>
+    </main>
+    <footer>
+        <p>© 2024 Teach English. Все права защищены.</p>
+    </footer>
+    <script>
+        const currentURL = window.location.pathname;
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            if (link.href.endsWith(currentURL)) {
+            link.style.fontWeight = 'bold';
+            }
+        });
+    </script>
+</body>
+</html>

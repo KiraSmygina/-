@@ -1,0 +1,205 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(200, 220, 240);
+    font-family: 'fonts/myfont.ttf', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-size: cover;
+    background-position: center;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0 4px 10px rgb(140, 178, 215);
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+}
+
+nav {
+    display: flex;
+    gap: 40px;
+}
+
+.logo img {
+    width: 220px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+nav a {
+    color: rgb(23, 48, 88);
+    text-decoration: none;
+    font-size: 1.0em;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a.active {
+    color: rgb(70, 90, 140);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: rgb(70, 90, 140);
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav a:hover {
+    color: rgb(70, 90, 140);
+    transform: translateY(-2px);
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+}
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(230, 235, 250);
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgb(140, 178, 215);
+}
+
+h1 {
+    font-size: 4em;
+    color: rgb(23, 48, 88);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 400px;
+    width: 350px;
+    margin: 0 auto;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.card p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.card .button {
+    background-color: rgb(170, 190, 225);
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card .button:hover {
+    background-color: rgb(150, 170, 200);
+    transform: translateX(-50%) translateY(-2px);
+}
+
+footer {
+    background-color: rgb(230, 235, 250);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

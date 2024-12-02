@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Еда - Teach English</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style3.css">
+    <style>
+        .arrow {
+            cursor: pointer;
+            font-size: 48px;
+            margin-top: 20px;
+            color: rgb(150, 170, 200);
+            transition: transform 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .arrow:hover {
+            transform: scale(1.1);
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px 0;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="picture/лого.png" alt="Logo"></a>
+            </div>
+            <nav>
+                <a href="about.html">О нас</a>
+                <a href="trainer.html">Тренажер</a>
+                <a href="dictionary.html">Словарь</a>
+                <a href="contact.html">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="card" id="foodCard">
+            <h2 id="foodName">Apple</h2>
+            <p id="foodTranslation" style="display: none;">Яблоко</p>
+            <div class="button-container">
+                <button class="button" id="toggleTranslation">Показать перевод</button>
+            </div>
+            <div class="arrow" id="nextFood">
+                <span class="material-icons">arrow_forward</span>
+            </div>
+        </div>
+        <a href="vocabulary_exercises.html" class="back-button">← Вернуться к выбору темы</a>
+    </main>
+    <footer>
+        <p>© 2024 Teach English. Все права защищены.</p>
+    </footer>
+
+    <script>
+        const foodItems = [
+            { name: "Apple", translation: "Яблоко" },
+            { name: "Bread", translation: "Хлеб" },
+            { name: "Cheese", translation: "Сыр" },
+            { name: "Chicken", translation: "Курица" },
+            { name: "Fish", translation: "Рыба" }
+        ];
+
+        let currentIndex = 0;
+
+        const foodName = document.getElementById("foodName");
+        const foodTranslation = document.getElementById("foodTranslation");
+        const toggleTranslationButton = document.getElementById("toggleTranslation");
+        const nextFoodButton = document.getElementById("nextFood");
+
+        function updateCard() {
+            foodName.textContent = foodItems[currentIndex].name;
+            foodTranslation.textContent = foodItems[currentIndex].translation;
+            foodTranslation.style.display = "none";
+            toggleTranslationButton.textContent = "Показать перевод";
+        }
+
+        toggleTranslationButton.addEventListener("click", () => {
+            if (foodTranslation.style.display === "none") {
+                foodTranslation.style.display = "block";
+                toggleTranslationButton.textContent = "Скрыть перевод";
+            } else {
+                foodTranslation.style.display = "none";
+                toggleTranslationButton.textContent = "Показать перевод";
+            }
+        });
+
+        nextFoodButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % foodItems.length;
+            updateCard();
+        });
+        updateCard();
+        const currentURL = window.location.pathname;
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            if (link.href.endsWith(currentURL)) {
+            link.style.fontWeight = 'bold';
+            }
+        });
+    </script>
+</body>
+</html>

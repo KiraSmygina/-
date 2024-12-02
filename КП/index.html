@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teach English</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="picture/лого.png" alt="Logo">
+            </div>
+            <nav>
+                <a href="about.html">О нас</a>
+                <a href="trainer.html">Тренажер</a>
+                <a href="dictionary.html">Словарь</a>
+                <a href="contact.html">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <div class="content">
+                <h1>Teach English</h1>
+                <h2><i>Тренажер для запоминания слов</i></h2>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="btn" onclick="location.href='trainer.html'">Начать обучение</button>
+            <button class="btn btn-details" onclick="scrollToCards()">Узнать подробности</button>
+        </div>
+        <div class="row" id="cards">
+            <div class="column">
+                <img src="picture/джостик.png" alt="Game" style="height: 150px; width: 200px;">
+                <h2>Обучающая игра</h2>
+                <p>Человек кликает по карточкам и узнаёт новые слова на английском. Игра включает в себя различные уровни сложности, чтобы каждый мог найти подходящий для себя.</p>
+            </div>
+            <div class="column">
+                <img src="picture/test.png" alt="Test" style="height: 150px; width: 250px;">
+                <h2>Проверка знаний</h2>
+                <p>Нажимая на карточку, можно увидеть перевод слова и запомнить его. Также есть возможность пройти тесты, чтобы проверить свои знания.</p>
+            </div>
+            <div class="column">
+                <img src="picture/словарь.jpg" alt="Dictionary" style="height: 150px; width: 160px;">
+                <h2>Словарь</h2>
+                <p>В словаре можно записывать слова, которые вам не известны, и наоборот, то есть выученные слова. Вы можете добавлять примеры использования слов в предложениях, чтобы лучше их запомнить.</p>
+            </div>
+        </div>
+    
+        <script>
+            function checkVisibility() {
+                const rows = document.querySelectorAll('.row');
+                rows.forEach(row => {
+                    const rect = row.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                        row.classList.add('visible');
+                    }
+                });
+            }
+            function scrollToCards() {
+                const cards = document.getElementById('cards');
+                cards.scrollIntoView({ behavior: 'smooth' });
+                cards.classList.add('visible');
+            }
+    
+            window.addEventListener('scroll', checkVisibility);
+        </script>
+    </main>
+    <footer>
+        <p>© 2024 Teach English. Все права защищены.</p>
+    </footer>
+    <script>
+        const currentURL = window.location.pathname;
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            if (link.href.endsWith(currentURL)) {
+            link.style.fontWeight = 'bold';
+            }
+        });
+    </script>
+</body>
+</html>

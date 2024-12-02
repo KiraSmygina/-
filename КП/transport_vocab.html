@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Транспорт - Teach English</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style3.css">
+    <style>
+        .arrow {
+            cursor: pointer;
+            font-size: 48px;
+            margin-top: 20px;
+            color: rgb(150, 170, 200);
+            transition: transform 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .arrow:hover {
+            transform: scale(1.1);
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px 0;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="picture/лого.png" alt="Logo"></a>
+            </div>
+            <nav>
+                <a href="about.html">О нас</a>
+                <a href="trainer.html">Тренажер</a>
+                <a href="dictionary.html">Словарь</a>
+                <a href="contact.html">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="card" id="transportCard">
+            <h2 id="transportName">Car</h2>
+            <p id="transportTranslation" style="display: none;">Автомобиль</p>
+            <div class="button-container">
+                <button class="button" id="toggleTranslation">Показать перевод</button>
+            </div>
+            <div class="arrow" id="nextTransport">
+                <span class="material-icons">arrow_forward</span>
+            </div>
+        </div>
+        <a href="vocabulary_exercises.html" class="back-button">← Вернуться к выбору темы</a>
+    </main>
+    <footer>
+        <p>© 2024 Teach English. Все права защищены.</p>
+    </footer>
+
+    <script>
+        const transportItems = [
+            { name: "Car", translation: "Автомобиль" },
+            { name: "Bicycle", translation: "Велосипед" },
+            { name: "Bus", translation: "Автобус" },
+            { name: "Train", translation: "Поезд" },
+            { name: "Airplane", translation: "Самолет" }
+        ];
+
+        let currentIndex = 0;
+
+        const transportName = document.getElementById("transportName");
+        const transportTranslation = document.getElementById("transportTranslation");
+        const toggleTranslationButton = document.getElementById("toggleTranslation");
+        const nextTransportButton = document.getElementById("nextTransport");
+
+        function updateCard() {
+            transportName.textContent = transportItems[currentIndex].name;
+            transportTranslation.textContent = transportItems[currentIndex].translation;
+            transportTranslation.style.display = "none";
+            toggleTranslationButton.textContent = "Показать перевод";
+        }
+
+        toggleTranslationButton.addEventListener("click", () => {
+            if (transportTranslation.style.display === "none") {
+                transportTranslation.style.display = "block";
+                toggleTranslationButton.textContent = "Скрыть перевод";
+            } else {
+                transportTranslation.style.display = "none";
+                toggleTranslationButton.textContent = "Показать перевод";
+            }
+        });
+
+        nextTransportButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % transportItems.length;
+            updateCard();
+        });
+
+        updateCard();
+        const currentURL = window.location.pathname;
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            if (link.href.endsWith(currentURL)) {
+            link.style.fontWeight = 'bold';
+            }
+        });
+    </script>
+</body>
+</html>

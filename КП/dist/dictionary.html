@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Словарь - Teach English</title>
+    <link rel="stylesheet" href="style3.css">
+    <style>
+        .dictionary-entry {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgb(170, 190, 225);
+        }
+        .add-word-form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        textarea {
+            resize: none;
+        }
+        .button {
+            background-color: rgb(170, 190, 225);
+            border: none;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: rgb(150, 170, 200);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="picture/лого.png" alt="Logo"></a>
+            </div>
+            <nav>
+                <a href="about.html">О нас</a>
+                <a href="trainer.html">Тренажер</a>
+                <a href="dictionary.html">Словарь</a>
+                <a href="contact.html">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="add-word-form">
+            <h2>Добавить новое слово</h2>
+            <label for="word">Слово:</label>
+            <input type="text" id="word" placeholder="Введите слово...">
+            
+            <label for="translation">Перевод:</label>
+            <input type="text" id="translation" placeholder="Введите перевод...">
+            
+            <label for="example">Пример использования:</label>
+            <textarea id="example" placeholder="Введите пример использования слова..."></textarea>
+            
+            <button class="button" onclick="addWord()">Добавить слово</button>
+        </div>
+
+        <div id="dictionary-entries">
+            <h2>Ваши слова</h2>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 Teach English. Все права защищены.</p>
+    </footer>
+
+    <script>
+        function addWord() {
+            const word = document.getElementById('word').value;
+            const translation = document.getElementById('translation').value;
+            const example = document.getElementById('example').value;
+
+            if (word && translation && example) {
+                const entry = document.createElement('div');
+                entry.classList.add('dictionary-entry');
+                entry.innerHTML = `<strong>${word}</strong> (${translation})<br><em>Пример: ${example}</em>`;
+                document.getElementById('dictionary-entries').appendChild(entry);
+
+                document.getElementById('word').value = '';
+                document.getElementById('translation').value = '';
+                document.getElementById('example').value = '';
+            } else {
+                alert('Пожалуйста, заполните все поля.');
+            }
+        }
+        const currentURL = window.location.pathname;
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            if (link.href.endsWith(currentURL)) {
+            link.style.fontWeight = 'bold';
+            }
+        });
+    </script>
+</body>
+</html>

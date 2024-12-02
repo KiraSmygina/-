@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Упражнения по чтению - Teach English</title>
+    <link rel="stylesheet" href="style3.css">
+    <style>
+        .exercise {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            line-height: 1.6;
+        }
+        .arrow {
+            cursor: pointer;
+            font-size: 48px;
+            margin-top: 20px;
+            color: rgb(150, 170, 200);
+            transition: transform 0.3s;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px 0;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="picture/лого.png" alt="Logo"></a>
+            </div>
+            <nav>
+                <a href="about.html">О нас</a>
+                <a href="trainer.html">Тренажер</a>
+                <a href="dictionary.html">Словарь</a>
+                <a href="contact.html">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="exercise">
+            <h2>Упражнение 1: Прочитайте текст и ответьте на вопросы</h2>
+            <p><strong>Текст:</strong> "The sun rises in the east and sets in the west. It provides light and warmth to our planet."</p>
+            <p><strong>Перевод:</strong> "Солнце встает на востоке и заходит на западе. Оно обеспечивает светом и теплом нашу планету."</p>
+            <h3>Вопросы:</h3>
+            <ul>
+                <li>Where does the sun rise?</li>
+                <li>What does the sun provide to our planet?</li>
+            </ul>
+        </div>
+
+        <div class="exercise">
+            <h2>Упражнение 2: Прочитайте текст и ответьте на вопросы</h2>
+            <p><strong>Текст:</strong> "Cats are popular pets around the world. They are known for their independence and playful behavior."</p>
+            <p><strong>Перевод:</strong> "Кошки — популярные домашние животные по всему миру. Они известны своей независимостью и игривым поведением."</p>
+            <h3>Вопросы:</h3>
+            <ul>
+                <li>Why are cats popular pets?</li>
+                <li>What are two characteristics of cats?</li>
+            </ul>
+        </div>
+
+        <div class="exercise">
+            <h2>Упражнение 3: Прочитайте текст и ответьте на вопросы</h2>
+            <p><strong>Текст:</strong> "The ocean covers more than 70% of the Earth's surface. It is home to countless species of marine life."</p>
+            <p><strong>Перевод:</strong> "Океан покрывает более 70% поверхности Земли. Он является домом для бесчисленных видов морской жизни."</p>
+            <h3>Вопросы:</h3>
+            <ul>
+                <li>What percentage of the Earth's surface is covered by the ocean?</li>
+                <li>What lives in the ocean?</li>
+            </ul>
+        </div>
+
+        <div class="exercise">
+            <h2>Упражнение 4: Прочитайте текст и ответьте на вопросы</h2>
+            <p><strong>Текст:</strong> "Reading books can improve your knowledge and vocabulary. It also helps to develop your imagination."</p>
+            <p><strong>Перевод:</strong> "Чтение книг может улучшить ваши знания и словарный запас. Оно также помогает развивать ваше воображение."</p>
+            <h3>Вопросы:</h3>
+            <ul>
+                <li>How can reading books help you?</li>
+                <li>What does reading develop?</li>
+            </ul>
+        </div>
+        <a href="trainer.html" class="back-button">← Вернуться к разделу Тренажер</a>
+    </main>
+    <footer>
+        <p>© 2024 Teach English. Все права защищены.</p>
+    </footer>
+    <script>
+        const currentURL = window.location.pathname;
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            if (link.href.endsWith(currentURL)) {
+            link.style.fontWeight = 'bold';
+            }
+        });
+    </script>
+</body>
+</html>

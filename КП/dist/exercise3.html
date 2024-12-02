@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Упражнение 3 - Teach English</title>
+    <link rel="stylesheet" href="style3.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+        }
+        .exercise-item {
+            margin-bottom: 15px;
+        }
+        .correct-answers {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px 0;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            text-decoration: underline;
+        }
+        .check-button {
+            background-color: rgb(170, 190, 225);
+            border: none;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 20px 0;
+        }
+
+        .check-button:hover {
+            background-color: rgb(150, 170, 200);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"><img src="picture/лого.png" alt="Logo"></a>
+            </div>
+            <nav>
+                <a href="about.html">О нас</a>
+                <a href="trainer.html">Тренажер</a>
+                <a href="dictionary.html">Словарь</a>
+                <a href="contact.html">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="main-container">
+            <h1>Упражнение 3: Переведите предложения на английский язык</h1>
+            <p>Переведите предложения на английский язык, используя правильные грамматические структуры:</p>
+
+            <form id="exercise-form">
+                <div class="exercise-item">
+                    <label for="sentence1">1. Я люблю читать книги.</label>
+                    <input type="text" id="sentence1" placeholder="Введите перевод">
+                </div>
+                <div class="exercise-item">
+                    <label for="sentence2">2. Она идет в школу каждый день.</label>
+                    <input type="text" id="sentence2" placeholder="Введите перевод">
+                </div>
+                <div class="exercise-item">
+                    <label for="sentence3">3. Мы были в отпуске на прошлой неделе.</label>
+                    <input type="text" id="sentence3" placeholder="Введите перевод">
+                </div>
+                <div class="exercise-item">
+                    <label for="sentence4">4. Он играет в футбол по выходным.</label>
+                    <input type="text" id="sentence4" placeholder="Введите перевод">
+                </div>
+                <div class="exercise-item">
+                    <label for="sentence5">5. Ты видел этот фильм?</label>
+                    <input type="text" id="sentence5" placeholder="Введите перевод">
+                </div>
+                <button type="submit" class="check-button">Проверить ответы</button>
+            </form>
+            <div id="result" style="margin-top: 20px;"></div>
+            <div id="correct-answers" class="correct-answers" style="display: none;"></div>
+            <a href="grammar_exercises.html" class="back-button">← Вернуться к упражнениям по грамматике</a>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 Teach English. Все права защищены.</p>
+    </footer>
+
+    <script>
+        document.getElementById('exercise-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const answers = [
+                'I love to read books.',
+                'She goes to school every day.',
+                'We were on vacation last week.',
+                'He plays football on weekends.',
+                'Did you see this movie?'
+            ];
+
+            const userAnswers = [
+                document.getElementById('sentence1').value.trim().toLowerCase(),
+                document.getElementById('sentence2').value.trim().toLowerCase(),
+                document.getElementById('sentence3').value.trim().toLowerCase(),
+                document.getElementById('sentence4').value.trim().toLowerCase(),
+                document.getElementById('sentence5').value.trim().toLowerCase()
+            ];
+
+            let correctCount = 0;
+            let feedback = '';
+
+            userAnswers.forEach((answer, index) => {
+                if (answer === answers[index].toLowerCase()) {
+                    correctCount++;
+                } else {
+                    feedback += `Вопрос ${index + 1}: Правильный ответ - "${answers[index]}".<br>`;
+                }
+            });
+
+            document.getElementById('result').innerText = `Вы правильно ответили на ${correctCount} из ${answers.length} вопросов.`;
+            
+            if (correctCount < answers.length) {
+                document.getElementById('correct-answers').innerHTML = feedback;
+                document.getElementById('correct-answers').style.display = 'block';
+            } else {
+                document.getElementById('correct-answers').style.display = 'none';
+            }
+        });
+        const currentURL = window.location.pathname;
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            if (link.href.endsWith(currentURL)) {
+            link.style.fontWeight = 'bold';
+            }
+        });
+    </script>
+</body>
+</html>
